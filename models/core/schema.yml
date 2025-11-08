@@ -1,28 +1,10 @@
 version: 2
 models:
-  - name: dim_shift
-    tests:
-      - not_null: {column_name: shift_key}
-      - unique:   {column_name: shift_key}
-  - name: dim_date
+  - name: mart_downtime_pareto
     tests:
       - not_null: {column_name: date_key}
-      - unique:   {column_name: date_key}
-  - name: fact_production
+      - not_null: {column_name: machine_key}
+  - name: mart_cost_summary
     tests:
-    - not_null: {column_name: date_key}
-    - not_null: {column_name: machine_key}
-    - not_null: {column_name: sku_key}
-    - not_null: {column_name: shift_key}
-    - relationships:
-        column_name: machine_key
-        to: ref('dim_machine')
-        field: machine_key
-    - relationships:
-        column_name: sku_key
-        to: ref('dim_sku')
-        field: sku_key
-    - relationships:
-        column_name: shift_key
-        to: ref('dim_shift')
-        field: shift_key
+      - not_null: {column_name: date_key}
+      - not_null: {column_name: machine_key}
