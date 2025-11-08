@@ -22,13 +22,6 @@ on-run-start:
 
 models:
   my_new_project:
-    +materialized: view
-    stg:
-      +materialized: table
-    # optional: put folders here later, e.g.
-    # stg:
-    #   +schema: STG
-    # core:
-    #   +schema: CORE
-    # marts:
-    #   +schema: MART
+    stg:   { +materialized: view,  +schema: STG }
+    core:  { +materialized: table, +schema: CORE }
+    marts: { +materialized: table, +schema: MART }
