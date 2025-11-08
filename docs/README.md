@@ -162,4 +162,4 @@ Add anomaly flags (e.g., OEE < threshold, sudden downtime spikes).
 
 Publish dbt docs site, add exposures for Power BI datasets.
 
-Owner: Chery Solutions LLC • Pipeline: cherysolutions_oee_analysis • License: MIT
+Owner: Chery Solutions LLC • Pipeline: cherysolutions_oee_analysis • License: MIT (optional)
