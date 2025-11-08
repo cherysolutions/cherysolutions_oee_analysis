@@ -1,0 +1,10 @@
+version: 2
+models:
+  - name: mart_downtime_pareto
+    tests:
+      - not_null: {column_name: date_key}
+      - not_null: {column_name: machine_key}
+  - name: mart_cost_summary
+    tests:
+      - not_null: {column_name: date_key}
+      - not_null: {column_name: machine_key}

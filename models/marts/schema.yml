@@ -1,0 +1,6 @@
+version: 2
+models:
+  - name: mart_oee_daily
+    tests:
+      - not_null: {column_name: date_key}
+      - not_null: {column_name: machine_key}

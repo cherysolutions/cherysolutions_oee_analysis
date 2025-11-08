@@ -1,0 +1,27 @@
+name: my_new_project
+version: 1.0.0
+config-version: 2
+profile: default  # dbt Cloud ignores; connection settings are used
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# Ensure every run has the right context
+on-run-start:
+  - "use role ROLE_TRANSFORM"
+  - "use warehouse WH_OEE_DEMO"
+  - "use database OEE_DEMO"
+  - "use schema STG"
+
+models:
+  my_new_project:
+    stg:   { +materialized: view,  +schema: STG }
+    core:  { +materialized: table, +schema: CORE }
+    marts: { +materialized: table, +schema: MART }

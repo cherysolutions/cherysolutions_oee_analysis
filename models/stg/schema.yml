@@ -1,0 +1,8 @@
+version: 2
+models:
+  - name: stg_production_events
+    tests:
+      - not_null:
+          column_name: date_key
+      - not_null:
+          column_name: machine_code
